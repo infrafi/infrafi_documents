@@ -71,6 +71,14 @@ graph TD
 
 ### Automated Monitoring Tools
 
+#### **Analytics Dashboard**
+InfraFi provides comprehensive analytics charts:
+- 📊 **Interest Rates History**: Real-time APY tracking with event markers
+- 📈 **Index History**: Visualize compound interest accumulation via borrow/supply indices
+- 🎯 **Time Frame Selector**: View data across 1H, 6H, 24H, 7D, 30D, or ALL time periods
+- 🎨 **Event Markers**: See exactly when deposits, withdrawals, borrows, and repays occurred
+- 💡 **Interactive Tooltips**: Hover over any point to see detailed metrics and related events
+
 #### **Set Up Alerts**
 Create monitoring systems for:
 - 📊 **LTV Alerts**: Notify when approaching 70%
@@ -152,10 +160,11 @@ Benefits of debt reduction:
 
 #### **Interest Rate Monitoring**
 Track rate changes and their impact:
-- 📈 **Utilization Tracking**: Monitor pool usage
-- 💰 **Cost Calculation**: Estimate monthly/annual costs
-- 🔄 **Timing Strategy**: Borrow during low-rate periods
+- 📈 **Utilization Tracking**: Monitor pool usage via Interest Rates History chart
+- 💰 **Cost Calculation**: Estimate monthly/annual costs using Index History growth
+- 🔄 **Timing Strategy**: Borrow during low-rate periods (visible on charts)
 - 📊 **Budget Planning**: Factor rates into financial planning
+- 🎯 **Visual Analysis**: Use time frame selector to compare rate periods
 
 #### **Payment Strategies**
 - **Interest-Only Payments**: Maintain debt level while covering costs

@@ -252,6 +252,34 @@ InfraFi uses a **Jump Rate Model** with dynamic rates based on utilization:
 - 📍 **[Contract Addresses](../developers/contract-addresses.md)**: Current deployment info
 - 💬 **Developer Support**: Active Discord community and GitHub
 
+### How can I monitor protocol analytics and my position?
+
+**InfraFi provides powerful analytics tools:**
+
+**Interest Rates History Chart:**
+- Real-time tracking of Supply APY, Borrow APY, and Utilization Rate
+- Event markers showing when deposits, withdrawals, borrows, and repays occurred
+- Time frame selector (1H, 6H, 24H, 7D, 30D, ALL) for different analysis periods
+- Interactive tooltips with detailed metrics
+
+**Index History Chart:**
+- Visualizes compound interest accumulation via borrow and supply indices
+- Shows how your debt and earnings grow over time
+- Same event markers and time frame controls
+- Helps estimate future costs and returns
+
+**Features:**
+- 📊 Toggle event markers on/off for cleaner views
+- 🎯 Click time frame buttons to zoom into specific periods  
+- 💡 Hover over any point to see metrics and related events
+- 📈 Compare different time periods to understand trends
+
+**Use Cases:**
+- Debug interest rate changes by correlating with events
+- Estimate borrowing costs by analyzing index growth
+- Identify optimal borrowing/repayment times
+- Track protocol activity and participation levels
+
 ## Troubleshooting
 
 ### Common Error Messages

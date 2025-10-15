@@ -289,19 +289,35 @@ function calculateBorrowRate(uint256 cash, uint256 borrows)
 
 #### **Interest Accrual**
 ```solidity
-// Compound-style interest accrual
-function accrueInterest() internal {
-    uint256 currentBlockNumber = block.number;
-    uint256 blockDelta = currentBlockNumber - accrualBlockNumber;
+// Compound-style interest accrual with accurate debt tracking
+function _updateRateIndices() internal {
+    uint256 timeElapsed = block.timestamp - lastUpdateTimestamp;
     
-    if (blockDelta > 0) {
-        uint256 borrowRate = getBorrowRate();
-        uint256 interestFactor = borrowRate * blockDelta;
+    if (timeElapsed > 0) {
+        uint256 previousBorrowIndex = borrowIndex;
         
-        borrowIndex = borrowIndex * (SCALE + interestFactor) / SCALE;
-        totalDebt = totalDebt * (SCALE + interestFactor) / SCALE;
+        // Update borrow index: borrowIndex *= (1 + rate * time / year)
+        uint256 currentBorrowRate = _getBorrowAPYFromPrincipalUtilization();
+        borrowIndex = borrowIndex + (borrowIndex * timeElapsed * currentBorrowRate) 
+                     / (365 days * BASIS_POINTS);
         
-        accrualBlockNumber = currentBlockNumber;
+        // Update totalDebt by the index growth ratio
+        if (totalRepaid < totalLent) {
+            uint256 principalDebt = totalLent - totalRepaid;
+            if (totalDebt == 0) {
+                totalDebt = principalDebt;
+            }
+            totalDebt = (totalDebt * borrowIndex) / previousBorrowIndex;
+        } else {
+            totalDebt = 0;
+        }
+        
+        // Update supply index similarly
+        uint256 currentSupplyRate = getCurrentSupplyAPY();
+        supplyIndex = supplyIndex + (supplyIndex * timeElapsed * currentSupplyRate) 
+                    / (365 days * BASIS_POINTS);
+        
+        lastUpdateTimestamp = block.timestamp;
     }
 }
 ```

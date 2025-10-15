@@ -80,6 +80,18 @@ Percentage of available funds currently borrowed. Formula: `Borrows ÷ (Cash + B
 ### **Jump Rate Model**
 Interest rate system that increases rates gradually until a "kink" point, then jumps dramatically to discourage over-utilization.
 
+### **Borrow Index**
+Compound-style accumulator tracking the growth of borrowed debt over time. Starts at 1.0 and increases as interest accrues, used to calculate accurate debt amounts.
+
+### **Supply Index**
+Compound-style accumulator tracking the growth of supplied funds over time. Starts at 1.0 and increases as lenders earn interest, used to calculate accurate earnings.
+
+### **Index History**
+Visual chart showing the growth of borrow and supply indices over time, helping users understand compound interest accumulation and protocol performance.
+
+### **Event Markers**
+Visual indicators on analytics charts showing when specific protocol actions (deposits, withdrawals, borrows, repays) occurred, enabling correlation analysis between events and rate changes.
+
 ## Blockchain & Smart Contract Terms
 
 ### **Smart Contract**
